@@ -1,0 +1,12 @@
+{
+  "name": "fik",
+  "displayName": "fik",
+  "expo": {
+    "name": "fik",
+    "slug": "fik",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
