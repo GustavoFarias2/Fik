@@ -6,7 +6,7 @@ import { View, Text } from 'react-native';
 
 import Histories from '../components/history';
 
-const find = ({ navigation }) => {
+const library = ({ navigation }) => {
 
   const { data, error } = useFetch('histories');
 
@@ -14,7 +14,7 @@ const find = ({ navigation }) => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={{ fontSize: 22, fontFamily: 'Montserrat_400Regular' }}>
-          loading histories
+          ...loading histories
         </Text>
       </View>
     )
@@ -23,4 +23,4 @@ const find = ({ navigation }) => {
 
 }
 
-export default find;
+export default library;

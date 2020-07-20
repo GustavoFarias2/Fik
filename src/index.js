@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <StatusBar barStyle='dark-content' />
+        <StatusBar barStyle='light-content' animated={true} />
 
         <NavigationContainer theme={theme}>
           <Routes />
