@@ -1,16 +1,26 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "UserName",
+      "description": "A Template description for the user :)"
+    }
+  ],
   "histories": [
     {
+      "userId": 1,
       "id": 1,
       "name": "A macabra historia",
       "description": "Uma Historia macabrissima fica esperto fella"
     },
     {
+      "userId": 1,
       "id": 2,
       "name": "O caminho escondido",
       "description": "O Caminho e por ali mesmo"
     },
     {
+      "userId": 1,
       "id": 3,
       "name": "A volta dos que nao foram",
       "description": "Fui e voltei?"

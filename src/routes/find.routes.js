@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 import Find from '../pages/find';
@@ -12,7 +12,7 @@ class FindHistoriesRoutes extends React.Component {
 
   render() {
     return (
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
 
         <Stack.Screen
           name="Find"

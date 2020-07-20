@@ -13,7 +13,7 @@ const histories = ({ navigation, data }) => {
         {data.map((history) =>
           <View key={history.id} style={styles.history_container}>
             <TouchableOpacity style={styles.button} onPress={() => handleClick(history.id, history.name)}>
-              <Text style={styles.histotY_name}>{history.name}</Text>
+              <Text style={styles.history_name}>{history.name}</Text>
             </TouchableOpacity>
           </View>
         )}

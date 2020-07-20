@@ -14,7 +14,7 @@ const library = ({ navigation }) => {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={{ fontSize: 22, fontFamily: 'Montserrat_400Regular' }}>
-          ...loading histories
+          loading histories
         </Text>
       </View>
     )
