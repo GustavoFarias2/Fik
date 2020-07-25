@@ -2,14 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10
+    paddingVertical: 1
   },
   history_container: {
-    marginVertical: 4,
+    marginVertical: 1,
     backgroundColor: '#1e1e1e',
     borderRadius: 2
   },
   button: {
+    paddingVertical: 20,
     padding: 15
   },
   history_name: {

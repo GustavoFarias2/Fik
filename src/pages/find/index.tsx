@@ -7,6 +7,7 @@ import useFetch from '../../hooks/useFetch';
 import { ActivityIndicator, View } from 'react-native';
 
 import Histories from '../components/history';
+import styles from './styles';
 
 const find = ({ navigation }: FindRouteParamList) => {
 
@@ -14,12 +15,12 @@ const find = ({ navigation }: FindRouteParamList) => {
 
   if (!data)
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.container}>
         <ActivityIndicator color='#fff' size='large' />
       </View>
     )
   else
-    return <Histories navigation={navigation} data={data} />
+    return <Histories handle={(history: any) => navigation.navigate('ReadHistory', history)} data={data} />
 
 }
 

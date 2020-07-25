@@ -14,13 +14,14 @@ import ReadHistory from '../pages/readHistory';
 import ReadChapter from '../pages/readHistory/readChapter';
 
 type NavigationProps = {
+  Find: any | undefined,
   ReadHistory: any | undefined,
   ReadChapter: any | undefined
 }
 
 export type FindRouteParamList = {
   navigation: StackNavigationProp<NavigationProps>,
-  route: RouteProp<NavigationProps, 'ReadHistory' | 'ReadChapter'>
+  route: RouteProp<NavigationProps, 'Find' |'ReadHistory' | 'ReadChapter'>
 }
 
 class FindHistoriesRoutes extends React.Component {

@@ -14,13 +14,14 @@ import ReadHistory from '../pages/readHistory';
 import ReadChapter from '../pages/readHistory/readChapter';
 
 type NavigationProps = {
+  Library: any | undefined,
   ReadHistory: any | undefined,
   ReadChapter: any | undefined
 }
 
 export type LibraryRouteParamList = {
   navigation: StackNavigationProp<NavigationProps>,
-  route: RouteProp<NavigationProps, 'ReadHistory' | 'ReadChapter'>
+  route: RouteProp<NavigationProps, 'Library' | 'ReadHistory' | 'ReadChapter'>
 }
 
 class LibraryRoutes extends React.Component {

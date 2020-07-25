@@ -2,15 +2,16 @@ import React from 'react';
 
 import { ScrollView, View, TouchableOpacity, Text } from 'react-native';
 import styles from './styles';
+import history from '../../readHistory/index';
 
 type history = {
   id: number,
   name: string
 }
 
-const histories = ({ navigation, data }: { navigation: any, data: history[] }) => {
+const histories = ({ data, handle }: {  data: history[], handle?: (history: history) => void }) => {
 
-  const handleClick = (history: history) => navigation.navigate('ReadHistory', history);
+  const handleClick = handle ? handle : () => {};
 
   return (
     <ScrollView>

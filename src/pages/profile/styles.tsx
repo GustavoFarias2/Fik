@@ -23,18 +23,16 @@ const styles = StyleSheet.create({
   photo_container: {
     flex: 6,
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20
+    justifyContent: 'center'
   },
   photo: {
     borderRadius: 50,
-    width: 90,
-    height: 90,
+    width: 100,
+    height: 100,
     backgroundColor: '#fff'
   },
   count_container: {
-    flex: 7,
-    flexDirection: 'row'
+    flex: 7
   },
   count: {
     flex: 1,

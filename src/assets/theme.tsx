@@ -3,12 +3,12 @@ import { Theme } from '@react-navigation/native';
 const theme: Theme = {
     dark: true,
     colors: {
-        primary: '#17224d',
-        background: '#17224d',
+        primary: '#4857c2',
+        background: '#4857c2',
         card: '#1e1e1e',
-        text: '#d1d1d1',
+        text: '#fff',
         border: '#1e1e1e',
-        notification: '#17224d'
+        notification: '#4857c2'
     }
 };
 

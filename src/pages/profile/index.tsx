@@ -35,6 +35,10 @@ const profile = ({ navigation }: ProfileRouteParamList) => {
                 <Text style={styles.count_number}>{data.histories.length}</Text>
                 <Text style={styles.count_text}>Histories</Text>
               </TouchableOpacity>
+              <TouchableOpacity style={styles.count} onPress={() => handleClickHistories()}>
+                <Text style={styles.count_number}>0</Text>
+                <Text style={styles.count_text}>Characters</Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.photo_container}>
               <View style={styles.photo}>
@@ -43,7 +47,11 @@ const profile = ({ navigation }: ProfileRouteParamList) => {
             <View style={styles.count_container}>
               <View style={styles.count}>
                 <Text style={styles.count_number}>0</Text>
-                <Text style={styles.count_text}>Characters</Text>
+                <Text style={styles.count_text}>Following</Text>
+              </View>
+              <View style={styles.count}>
+                <Text style={styles.count_number}>0</Text>
+                <Text style={styles.count_text}>Followers</Text>
               </View>
             </View>
 

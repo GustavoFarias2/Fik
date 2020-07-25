@@ -5,6 +5,7 @@ import { LibraryRouteParamList } from '../../routes/library.routes';
 import useFetch from '../../hooks/useFetch';
 
 import { ActivityIndicator, View } from 'react-native';
+import styles from './styles';
 
 import Histories from '../components/history';
 
@@ -14,12 +15,12 @@ const library = ({ navigation }: LibraryRouteParamList) => {
 
   if (!data)
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.container}>
         <ActivityIndicator color='#fff' size='large' />
       </View>
     )
   else
-    return <Histories navigation={navigation} data={data} />
+    return <Histories handle={(history: any) => navigation.navigate('ReadHistory', history)} data={data} />
 
 }
 
