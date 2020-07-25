@@ -1,13 +1,15 @@
 import React from 'react';
 
+import { ProfileRouteParamList } from '../../routes/profile.routes';
+
 import useFetch from '../../hooks/useFetch';
 
 import { Ionicons } from '@expo/vector-icons';
 
-import { View, Text, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-const profile = ({ navigation }) => {
+const profile = ({ navigation }: ProfileRouteParamList) => {
 
   const { data, error } = useFetch('users/1?_embed=histories');
 
@@ -17,9 +19,7 @@ const profile = ({ navigation }) => {
   if (!data)
     return (
       <View style={{ flex: 1, backgroundColor: '#1e1e1e', justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontSize: 22, color: '#fff', fontFamily: 'Montserrat_400Regular' }}>
-          loading your profile
-        </Text>
+        <ActivityIndicator color='#fff' size='large' />
       </View>)
   else
     return (

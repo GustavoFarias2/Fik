@@ -1,16 +1,28 @@
 import React from 'react';
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { RouteProp } from '@react-navigation/native';
+import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tabs = createBottomTabNavigator();
 
 import FindHistoriesRoutes from './find.routes';
 import LibraryRoutes from './library.routes';
 import ProfileRoutes from './profile.routes';
 
+type NavigationProps = {
+  FindHistoriesRoutes: any | undefined,
+  LibraryRoutes: any | undefined,
+  ProfileRoutes: any | undefined
+}
+
+export type AppRouteParamList = {
+  navigation: BottomTabNavigationProp<NavigationProps>,
+  route: RouteProp<NavigationProps, 'FindHistoriesRoutes' | 'LibraryRoutes' | 'ProfileRoutes'>
+}
+
 import { Ionicons } from '@expo/vector-icons';
-const returnIcon = (name) => ({ route }) => {
+const returnIcon = (name: string) => ({ route }: AppRouteParamList) => {
   return {
-    tabBarIcon: ({ color }) => (<Ionicons name={name} color={color} size={24} />),
+    tabBarIcon: ({ color }: { color: string }) => (<Ionicons name={name} color={color} size={24} />),
     // Remove tabs when reading (actual causing bug)
     // When back, the page go back a little bit
     // this causes the screan shake

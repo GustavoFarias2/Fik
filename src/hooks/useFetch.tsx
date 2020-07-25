@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import api from '../services/api';
 
-export default function useFetch(url) {
+export default function useFetch(url: string) {
 
   const { data, error } = useSWR(url, async (url) => {
 

@@ -1,21 +1,20 @@
 import React from 'react';
 
+import { ProfileRouteParamList } from '../../../routes/profile.routes';
+
 import useFetch from '../../../hooks/useFetch';
 
-import { ScrollView, View, Text } from 'react-native';
+import { ActivityIndicator, ScrollView, View, Text } from 'react-native';
 
-const histories = ({ navigation, route }) => {
+const histories = ({ route }: ProfileRouteParamList) => {
 
   const { data, error } = useFetch('users/' + (route.params ? route.params.id ? route.params.id : 1 : 1) + '/histories');
 
   if (!data)
     return (
-      <View style={{ flex: 1, backgroundColor: '#1e1e1e', justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontSize: 22, color: '#fff', fontFamily: 'Montserrat_400Regular' }}>
-          loading histories
-      </Text>
-      </View>
-    )
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator color='#fff' size='large' />
+      </View>)
   else
     return (
       <ScrollView style={{
@@ -25,7 +24,7 @@ const histories = ({ navigation, route }) => {
         <View style={{
           padding: 25
         }}>
-          {data.map((history) => (
+          {data.map((history: { id: number, name: string }) => (
             <Text key={history.id} style={{
               color: '#fff'
             }}>

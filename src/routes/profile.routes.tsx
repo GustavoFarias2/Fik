@@ -1,11 +1,23 @@
 import React from 'react';
 
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { RouteProp } from '@react-navigation/native';
+import { createDrawerNavigator, DrawerNavigationProp } from '@react-navigation/drawer';
 const Drawner = createDrawerNavigator();
 
 import Profile from '../pages/profile';
 import EditProfile from '../pages/profile/editProfile';
 import Histories from '../pages/profile/histories';
+
+type NavigationProps = {
+  Profile: any | undefined,
+  EditProfile: any | undefined,
+  Histories: any | undefined
+}
+
+export type ProfileRouteParamList = {
+  navigation: DrawerNavigationProp<NavigationProps>,
+  route: RouteProp<NavigationProps, 'Profile' | 'EditProfile' | 'Histories'>
+}
 
 class ProfileRoutes extends React.Component {
 

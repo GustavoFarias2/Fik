@@ -1,12 +1,27 @@
 import React from 'react';
 
-import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
+import { 
+  createStackNavigator, 
+  CardStyleInterpolators,
+  StackNavigationProp
+} from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 import Find from '../pages/find';
 
 import ReadHistory from '../pages/readHistory';
 import ReadChapter from '../pages/readHistory/readChapter';
+
+type NavigationProps = {
+  ReadHistory: any | undefined,
+  ReadChapter: any | undefined
+}
+
+export type FindRouteParamList = {
+  navigation: StackNavigationProp<NavigationProps>,
+  route: RouteProp<NavigationProps, 'ReadHistory' | 'ReadChapter'>
+}
 
 class FindHistoriesRoutes extends React.Component {
 
@@ -23,7 +38,7 @@ class FindHistoriesRoutes extends React.Component {
         <Stack.Screen
           name="ReadHistory"
           component={ReadHistory}
-          options={({ route }) => { return { headerTitle: route.params.name } }}
+          options={({ route }: FindRouteParamList) => { return { headerTitle: route.params?.name } }}
         />
         <Stack.Screen
           name="ReadChapter"

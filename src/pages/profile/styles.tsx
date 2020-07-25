@@ -41,9 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  count_button: {
-
-  },
   count_number: {
     fontSize: 16,
     color: '#fff',
@@ -56,7 +53,8 @@ const styles = StyleSheet.create({
   },
   info_container: {
     flex: 2,
-    padding: 20
+    padding: 20,
+    paddingBottom: 0
   },
   name: {
     fontSize: 17,
