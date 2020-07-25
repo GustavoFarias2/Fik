@@ -5,6 +5,7 @@ import { LibraryRouteParamList } from '../../../routes/library.routes';
 import useFetch from '../../../hooks/useFetch';
 
 import { ActivityIndicator, ScrollView, View, Text, StatusBar } from 'react-native';
+import styles from './styles';
 
 const readChapter = ({ route }: LibraryRouteParamList) => {
 
@@ -12,7 +13,7 @@ const readChapter = ({ route }: LibraryRouteParamList) => {
 
   if (!data)
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.loading_container}>
         <ActivityIndicator color='#fff' size='large' />
       </View>)
   else
@@ -20,27 +21,10 @@ const readChapter = ({ route }: LibraryRouteParamList) => {
       <>
         <StatusBar hidden={true} animated={true} />
 
-        <ScrollView style={{
-          backgroundColor: '#000'
-        }}>
-          <View style={{
-            padding: 25
-          }}>
-            <Text style={{
-              fontSize: 20,
-              fontFamily: 'Montserrat_700Bold',
-              marginBottom: 15,
-              color: '#fff'
-            }}>
-              {data.name}
-            </Text>
-            <Text style={{
-              fontSize: 18,
-              fontFamily: 'Montserrat_400Regular',
-              color: '#fff'
-            }}>
-              {data.text}
-            </Text>
+        <ScrollView style={styles.container}>
+          <View style={styles.container_padding}>
+            <Text style={styles.chapter_name}>{data.name}</Text>
+            <Text style={styles.chapter_text}>{data.text}</Text>
           </View>
         </ScrollView>
       </>

@@ -5,6 +5,7 @@ import { ProfileRouteParamList } from '../../../routes/profile.routes';
 import useFetch from '../../../hooks/useFetch';
 
 import { ActivityIndicator, ScrollView, View, Text } from 'react-native';
+import styles from './styles';
 
 const histories = ({ route }: ProfileRouteParamList) => {
 
@@ -12,24 +13,15 @@ const histories = ({ route }: ProfileRouteParamList) => {
 
   if (!data)
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.loading_container}>
         <ActivityIndicator color='#fff' size='large' />
       </View>)
   else
     return (
-      <ScrollView style={{
-        flex: 1,
-        backgroundColor: '#1e1e1e'
-      }}>
-        <View style={{
-          padding: 25
-        }}>
+      <ScrollView style={styles.container}>
+        <View style={styles.history_container}>
           {data.map((history: { id: number, name: string }) => (
-            <Text key={history.id} style={{
-              color: '#fff'
-            }}>
-              {history.name}
-            </Text>
+            <Text key={history.id} style={styles.history_name}>{history.name}</Text>
           ))}
         </View>
       </ScrollView>

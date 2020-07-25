@@ -21,7 +21,7 @@ class writeChapter extends React.Component {
 
   render() {
     return (
-      <Stack.Navigator  screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}>
+      <Stack.Navigator screenOptions={{ cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}>
 
         <Stack.Screen
           name="UserHistories"

@@ -2,9 +2,10 @@ import React from 'react';
 
 import { WriteChapterRouteParamList } from '../../../routes/writeChapter.routes';
 
-import { View, ActivityIndicator } from 'react-native';
-
 import useFetch from '../../../hooks/useFetch';
+
+import { View, ActivityIndicator } from 'react-native';
+import styles from './styles';
 
 import Histories from '../../components/history';
 
@@ -14,11 +15,7 @@ const userHistories: React.FC<WriteChapterRouteParamList> = ({ navigation }) => 
 
   if (!data)
     return (
-      <View style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
+      <View style={styles.container}>
         <ActivityIndicator color='#fff' size='large' />
       </View>
     )
