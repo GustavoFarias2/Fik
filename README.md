@@ -18,7 +18,7 @@
 ----
 
 <p align="center">
-  <img src="https://github.com/GustavoFarias2/ReadMeImages/blob/master/fik/createChapters.png" />
+  <img src="https://github.com/GustavoFarias2/ReadMeImages/blob/master/Fik/createChapters.png" />
 </p>
 
 ## Contributing
