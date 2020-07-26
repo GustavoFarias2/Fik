@@ -23,8 +23,6 @@ const style = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 3,
-    paddingTop: 3,
     width: '100%',
     height: '100%'
   }

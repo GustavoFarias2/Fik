@@ -19,8 +19,8 @@ const library = ({ navigation }: LibraryRouteParamList) => {
         <ActivityIndicator color='#fff' size='large' />
       </View>
     )
-  else
-    return <Histories handle={(history: any) => navigation.navigate('ReadHistory', history)} data={data} />
+
+  return <Histories handle={(history: any) => navigation.navigate('ReadHistory', history)} data={data} />
 
 }
 
