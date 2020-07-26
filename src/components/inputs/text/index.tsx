@@ -5,17 +5,23 @@ import { useField } from '@unform/core';
 import { TextInput as Input, Text } from 'react-native';
 import styles from './styles';
 
-type InputProps = {
+type TextInputProps = {
   name: string,
   customStyle?: {},
-  props?: any
+  props?: any,
 }
 
-const TextInput: React.FC<InputProps | any> = ({ name, customStyle, ...props }) => {
+const TextInput: React.FC<any | TextInputProps> = ({ name, customStyle, ...props }) => {
 
   const inputRef = useRef<any>(null);
 
-  const { fieldName, registerField, defaultValue, error } = useField(name);
+  const {
+    fieldName,
+    registerField,
+    defaultValue,
+    error,
+    clearError
+  } = useField(name);
 
   useEffect(() => {
     inputRef.current && (inputRef.current.value = defaultValue)
@@ -47,6 +53,7 @@ const TextInput: React.FC<InputProps | any> = ({ name, customStyle, ...props }) 
         keyboardAppearance="dark"
         style={{ ...styles.input, ...customStyle }}
         onChangeText={(v) => inputRef.current.value = v}
+        onFocus={clearError}
         {...props}
       />
     </>

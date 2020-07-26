@@ -8,16 +8,20 @@ import { ScrollView, View, Text, TouchableOpacity, ActivityIndicator } from 'rea
 import styles from './styles';
 import FloatButton from '../../../../components/floatButton/index';
 
-type chapter = {
+export type chapter = {
   historyId: number,
   id: number,
   name: string,
   text: string
 }
 
-const historyChapters: React.FC<WriteChapterRouteParamList> = ({ route }) => {
+const historyChapters: React.FC<WriteChapterRouteParamList> = ({ navigation, route }) => {
 
-  const { data } = useFetch('histories/' + route.params?.id + '/chapters');
+  const { data, mutate } = useFetch('histories/' + route.params?.id + '/chapters');
+
+  const handleClickChapter = (chapter: chapter) => navigation.navigate('Chapter', chapter);
+
+  const handleClickCreate = () => navigation.navigate('Create', { id: route.params?.id, mutate, data });
 
   if (!data)
     return (
@@ -28,14 +32,17 @@ const historyChapters: React.FC<WriteChapterRouteParamList> = ({ route }) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.chapters_container}>
-        {data.map((chapter: chapter) => (
-          <TouchableOpacity key={chapter.id}>
+        {data.map((chapter: chapter, i: number) => (
+          <TouchableOpacity
+            key={chapter.id + '/' + i}
+            onPress={() => handleClickChapter(chapter)}
+          >
             <Text style={styles.chapter_name}>{chapter.name}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
 
-      <FloatButton action={() => { }} buttonStyle={{ margin: 10, backgroundColor: '#4857c2' }} iconName="md-add" />
+      <FloatButton action={handleClickCreate} color='#4857c2' iconName="md-add" />
     </View>
   )
 }

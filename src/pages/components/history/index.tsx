@@ -16,8 +16,8 @@ const histories = ({ data, handle }: {  data: history[], handle?: (history: hist
   return (
     <ScrollView>
       <View style={styles.container}>
-        {data.map((history) =>
-          <View key={history.id} style={styles.history_container}>
+        {data.map((history, i) =>
+          <View key={history.id + '/' + i} style={styles.history_container}>
             <TouchableOpacity style={styles.button} onPress={() => handleClick(history)}>
               <Text style={styles.history_name}>{history.name}</Text>
             </TouchableOpacity>

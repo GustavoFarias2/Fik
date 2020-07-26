@@ -6,18 +6,17 @@ import styles from './styles';
 import { Ionicons } from '@expo/vector-icons';
 
 type FloatButtonProps = {
-  action: () => void,
+  action: (any: any) => any,
   iconName?: string,
-  buttonStyle?: {},
-  iconStyle?: {}
+  color?: string
 }
 
-const FloatButton: React.FC<FloatButtonProps> = ({ action, iconName, buttonStyle, iconStyle }) => {
+const FloatButton: React.FC<FloatButtonProps> = ({ action, iconName, color }) => {
 
   return (
     <View style={styles.button_container}>
-      <View style={{ ...styles.button_background, ...buttonStyle }}>
-        <TouchableOpacity style={{ ...styles.button, ...iconStyle }} onPress={action}>
+      <View style={{ ...styles.button_background, ...{ backgroundColor: color ? color : '#1e1e1e' } }}>
+        <TouchableOpacity style={styles.button} onPress={action}>
           <Ionicons name={iconName || 'md-send'} size={30} color='#d1d1d1' />
         </TouchableOpacity>
       </View>

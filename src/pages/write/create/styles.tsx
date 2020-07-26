@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 22,
-    fontFamily: 'Montserrat_400Regular'
+    fontFamily: 'Montserrat_400Regular',
+    marginBottom: 7
   },
   input: {
     textAlignVertical: 'top',

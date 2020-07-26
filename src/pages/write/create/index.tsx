@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 
 import { WriteRouteParamList } from '../../../routes/write.routes';
 
+import useFetch from '../../../hooks/useFetch';
 import api from '../../../services/api';
-import { mutate } from 'swr';
 
 import useValidate from '../../../hooks/useValidate';
 import * as Yup from 'yup';
@@ -18,20 +18,23 @@ import styles from './styles';
 
 const write: React.FC<WriteRouteParamList> = ({ navigation }) => {
 
+  const { data, mutate } = useFetch('users/1/histories');
+
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = async (data: { name: string, description: string }) => {
+  const handleSubmit = async (history: { name: string, description: string }) => {
     await useValidate({
       name: Yup.string().required('Please insert the name to continue'),
       description: Yup.string()
-    }, data, formRef)
+    }, history, formRef)
       .then(() => {
-        api.post('histories', { ...data, userId: 1 });
-        mutate('users/1/histories');
+        api.post('histories', { ...history, userId: 1 });
+        mutate([...data, history], false);
         Keyboard.dismiss();
         formRef.current?.reset();
         navigation.dangerouslyGetParent()?.navigate('UserHistories');
-      });
+      })
+      .catch(() => { });
   }
 
   return (
@@ -55,10 +58,9 @@ const write: React.FC<WriteRouteParamList> = ({ navigation }) => {
             customStyle={styles.input}
           />
         </Form>
-
-        <FloatButton action={() => formRef.current?.submitForm()} />
       </View>
 
+      <FloatButton action={() => formRef.current?.submitForm()} />
     </View>
   )
 

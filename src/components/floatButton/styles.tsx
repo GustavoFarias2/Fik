@@ -4,10 +4,10 @@ const style = StyleSheet.create({
   button_container: {
     position: 'absolute',
     right: 0,
-    bottom: 0
+    bottom: 0,
+    margin: 10
   },
   button_background: {
-    backgroundColor: '#1e1e1e',
     width: 65,
     height: 65,
     shadowColor: "#2FFF9D",
